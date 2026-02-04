@@ -1,0 +1,115 @@
+.destination_wrapper {
+  background: url("../assets/destination/background-destination-desktop.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  @include breakpoint-down(small) {
+    background: url("../assets/destination/background-destination-mobile.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.destination_container {
+  grid-template-columns: 52% auto;
+  gap: 2rem;
+  align-items: end;
+  justify-items: start;
+  @include breakpoint-down(medium) {
+    align-items: center;
+    margin: 10rem 0px 3rem 0px;
+  }
+
+  @include breakpoint-down(small) {
+    margin: 6rem 0px 3rem 0px;
+  }
+}
+
+.planet_content_container {
+  @include flex-column-gap(0);
+
+  .body_text {
+    height: 10rem;
+  }
+}
+
+.planets_nav {
+  display: flex;
+  gap: 36px;
+  margin-bottom: 42px;
+  @include breakpoint-down(medium) {
+    justify-content: center;
+  }
+  .nav_links {
+    color: $secondaryColor;
+    &:before {
+      top: 26px;
+    }
+  }
+}
+
+.planet_info_container {
+  display: flex;
+  gap: 79px;
+  @include breakpoint-down(medium) {
+    justify-content: center;
+  }
+  @include breakpoint-down(small) {
+    flex-direction: column;
+    gap: 46px;
+  }
+}
+
+hr {
+  margin: 15px 0 31px 0;
+  @include breakpoint-down(small) {
+    // margin: 80px 0 31px 0;
+  }
+}
+
+.heading_and_img {
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+  @include breakpoint-down(small) {
+    align-items: center;
+    gap: 1.4rem;
+  }
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.planet_img {
+  width: 445px;
+  height: 445px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  // animation: rotateAnimation 180s linear infinite;
+
+  @include breakpoint-down(small) {
+    width: 70vw;
+    height: 300px;
+  }
+}
+
+.active_navlink {
+  background: none;
+  color: $tertiaryColor;
+  @include nav_font;
+  position: relative;
+  &::before {
+    content: "";
+    width: 100%;
+    height: 3px;
+    top: 26px;
+    background: $tertiaryColor;
+    position: absolute;
+  }
+}

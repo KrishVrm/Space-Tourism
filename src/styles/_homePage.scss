@@ -1,0 +1,55 @@
+.home_wrapper {
+  background: url("../assets/home/background-home-desktop.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  @include breakpoint-down(small) {
+    background: url("../assets/home/background-home-mobile.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.landing_page_btn {
+  background: $tertiaryColor;
+  color: #0b0d17;
+  font-size: 32px;
+  font-family: Bellefair;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2px;
+  height: 15rem;
+  width: 15rem;
+  border-radius: 100rem;
+  position: relative;
+  z-index: 2;
+
+  &::before {
+    position: absolute;
+    content: "";
+    background: $tertiaryColor;
+    border-radius: 100rem;
+    z-index: 1;
+    width: 400px;
+    height: 400px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+
+    @include breakpoint-down(small) {
+      display: none;
+    }
+  }
+  &:hover {
+    &::before {
+      opacity: 0.1036275252699852;
+      visibility: visible;
+      // transform: scale(1);
+      width: 450px;
+      height: 450px;
+    }
+  }
+}
